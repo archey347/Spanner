@@ -1,0 +1,501 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\SQLite.3.13.0\build\net45\SQLite.props" Condition="Exists('..\packages\SQLite.3.13.0\build\net45\SQLite.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{5BE726BB-B34D-4F6A-8B03-8B7DD205D579}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <StartupObject>Spanner.My.MyApplication</StartupObject>
+    <RootNamespace>Spanner</RootNamespace>
+    <AssemblyName>Spanner</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <MyType>WindowsForms</MyType>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>Spanner.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>Spanner.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionExplicit>On</OptionExplicit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionCompare>Binary</OptionCompare>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionStrict>Off</OptionStrict>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>wrench.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BCrypt.Net-Next, Version=3.2.1.0, Culture=neutral, PublicKeyToken=1e11be04b6288443, processorArchitecture=MSIL">
+      <HintPath>..\packages\BCrypt.Net-Next.3.2.1\lib\net472\BCrypt.Net-Next.dll</HintPath>
+    </Reference>
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.1.0, Culture=neutral, PublicKeyToken=0e99375e54769942, processorArchitecture=MSIL">
+      <HintPath>..\packages\Portable.BouncyCastle.1.8.1.3\lib\net40\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
+    <Reference Include="Common.Logging, Version=3.4.1.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Common.Logging.3.4.1\lib\net40\Common.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Common.Logging.Core, Version=3.4.1.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Common.Logging.Core.3.4.1\lib\net40\Common.Logging.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="IronPdf, Version=2020.0.1.24570, Culture=neutral, PublicKeyToken=94e1c31412563c75, processorArchitecture=MSIL">
+      <HintPath>..\packages\IronPdf.2020.1.0\lib\net40\IronPdf.dll</HintPath>
+    </Reference>
+    <Reference Include="IronPdf.Assets.Rendering.Windows, Version=16.0.0.0, Culture=neutral, PublicKeyToken=94e1c31412563c75, processorArchitecture=MSIL">
+      <HintPath>..\packages\Iron.Assets.Rendering.Windows.16.0.0\lib\net40\IronPdf.Assets.Rendering.Windows.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.barcodes, Version=7.1.9.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext7.7.1.9\lib\net40\itext.barcodes.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.forms, Version=7.1.9.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext7.7.1.9\lib\net40\itext.forms.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.io, Version=7.1.9.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext7.7.1.9\lib\net40\itext.io.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.kernel, Version=7.1.9.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext7.7.1.9\lib\net40\itext.kernel.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.layout, Version=7.1.9.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext7.7.1.9\lib\net40\itext.layout.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.pdfa, Version=7.1.9.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext7.7.1.9\lib\net40\itext.pdfa.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.sign, Version=7.1.9.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext7.7.1.9\lib\net40\itext.sign.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.styledxmlparser, Version=7.1.9.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext7.7.1.9\lib\net40\itext.styledxmlparser.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.svg, Version=7.1.9.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext7.7.1.9\lib\net40\itext.svg.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="NReco.PdfGenerator, Version=1.1.15.0, Culture=neutral, PublicKeyToken=231663d50a41b451, processorArchitecture=MSIL">
+      <HintPath>..\packages\NReco.PdfGenerator.1.1.15\lib\net20\NReco.PdfGenerator.dll</HintPath>
+    </Reference>
+    <Reference Include="PdfSharp, Version=1.50.5147.0, Culture=neutral, PublicKeyToken=f94615aa0424f9eb, processorArchitecture=MSIL">
+      <HintPath>..\packages\PDFsharp.1.50.5147\lib\net20\PdfSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="PdfSharp.Charting, Version=1.50.5147.0, Culture=neutral, PublicKeyToken=f94615aa0424f9eb, processorArchitecture=MSIL">
+      <HintPath>..\packages\PDFsharp.1.50.5147\lib\net20\PdfSharp.Charting.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.SQLite, Version=1.0.112.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SQLite.Core.1.0.112.0\lib\net46\System.Data.SQLite.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Drawing" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Windows.Forms" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+    <Import Include="System.Threading.Tasks" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Admin\Club.Designer.vb">
+      <DependentUpon>Club.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Club.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Clubs\ClubAdmin.Designer.vb">
+      <DependentUpon>ClubAdmin.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Clubs\ClubAdmin.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\Clubs.Designer.vb">
+      <DependentUpon>Clubs.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Clubs.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Clubs\Membership\ClubMembershipSelectUser.Designer.vb">
+      <DependentUpon>ClubMembershipSelectUser.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Clubs\Membership\ClubMembershipSelectUser.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Clubs\Roles\ClubAssignRoles.Designer.vb">
+      <DependentUpon>ClubAssignRoles.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Clubs\Roles\ClubAssignRoles.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Clubs\Events\ClubEvent.Designer.vb">
+      <DependentUpon>ClubEvent.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Clubs\Events\ClubEvent.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Clubs\Events\ClubEventBookings.Designer.vb">
+      <DependentUpon>ClubEventBookings.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Clubs\Events\ClubEventBookings.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Clubs\Events\ClubEventResults.Designer.vb">
+      <DependentUpon>ClubEventResults.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Clubs\Events\ClubEventResults.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Clubs\Events\ClubEvents.Designer.vb">
+      <DependentUpon>ClubEvents.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Clubs\Events\ClubEvents.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Clubs\Events\ClubEventSections.Designer.vb">
+      <DependentUpon>ClubEventSections.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Clubs\Events\ClubEventSections.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Clubs\Transactions\ClubManageTransaction.Designer.vb">
+      <DependentUpon>ClubManageTransaction.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Clubs\Transactions\ClubManageTransaction.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Clubs\Membership\ClubMembership.Designer.vb">
+      <DependentUpon>ClubMembership.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Clubs\Membership\ClubMembership.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Clubs\Membership\ClubMembershipRequests.Designer.vb">
+      <DependentUpon>ClubMembershipRequests.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Clubs\Membership\ClubMembershipRequests.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Clubs\Membership\ClubMembershipType.Designer.vb">
+      <DependentUpon>ClubMembershipType.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Clubs\Membership\ClubMembershipType.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Clubs\Membership\ClubMembershipTypes.Designer.vb">
+      <DependentUpon>ClubMembershipTypes.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Clubs\Membership\ClubMembershipTypes.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Clubs\Membership\ClubMembershipRequestNew.Designer.vb">
+      <DependentUpon>ClubMembershipRequestNew.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Clubs\Membership\ClubMembershipRequestNew.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Clubs\Events\ClubNewEventBooking.Designer.vb">
+      <DependentUpon>ClubNewEventBooking.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Clubs\Events\ClubNewEventBooking.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Clubs\Transactions\ClubTransaction.Designer.vb">
+      <DependentUpon>ClubTransaction.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Clubs\Transactions\ClubTransaction.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Clubs\Transactions\ClubManageTransactions.Designer.vb">
+      <DependentUpon>ClubManageTransactions.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Clubs\Transactions\ClubManageTransactions.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Clubs\DateDialog.Designer.vb">
+      <DependentUpon>DateDialog.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Clubs\DateDialog.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\AccessControlLayer.vb" />
+    <Compile Include="Modules\ApplicationEvents.vb" />
+    <Compile Include="Login.Designer.vb">
+      <DependentUpon>Login.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Login.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main.Designer.vb">
+      <DependentUpon>Main.vb</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\Authentication.vb" />
+    <Compile Include="Modules\Injector.vb" />
+    <Compile Include="Modules\Payments.vb" />
+    <Compile Include="Modules\Database.vb" />
+    <Compile Include="Modules\Forms.vb" />
+    <Compile Include="Modules\Membership.vb" />
+    <Compile Include="Modules\Results.vb" />
+    <Compile Include="Modules\Session.vb" />
+    <Compile Include="Modules\Validation.vb" />
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Personal\PersonalNewMembership.Designer.vb">
+      <DependentUpon>PersonalNewMembership.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Personal\PersonalNewMembership.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Personal\PersonalMembershipRequests.Designer.vb">
+      <DependentUpon>PersonalMembershipRequests.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Personal\PersonalMembershipRequests.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Personal\PersonalBookings.Designer.vb">
+      <DependentUpon>PersonalBookings.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Personal\PersonalBookings.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Personal\PersonalDetails.Designer.vb">
+      <DependentUpon>PersonalDetails.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Personal\PersonalDetails.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Personal\PersonalEventBooking.Designer.vb">
+      <DependentUpon>PersonalEventBooking.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Personal\PersonalEventBooking.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Personal\PersonalMembership.Designer.vb">
+      <DependentUpon>PersonalMembership.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Personal\PersonalMembership.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Clubs\Roles\ClubRoles.Designer.vb">
+      <DependentUpon>ClubRoles.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Clubs\Roles\ClubRoles.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\VehicleClass.Designer.vb">
+      <DependentUpon>VehicleClass.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\VehicleClass.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\VehicleClasses.Designer.vb">
+      <DependentUpon>VehicleClasses.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\VehicleClasses.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Personal\PersonalMembershipRenew.Designer.vb">
+      <DependentUpon>PersonalMembershipRenew.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Personal\PersonalMembershipRenew.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Personal\PersonalNewEventBooking.Designer.vb">
+      <DependentUpon>PersonalNewEventBooking.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Personal\PersonalNewEventBooking.vb">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Admin\Club.resx">
+      <DependentUpon>Club.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Clubs\ClubAdmin.resx">
+      <DependentUpon>ClubAdmin.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\Clubs.resx">
+      <DependentUpon>Clubs.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Clubs\Membership\ClubMembershipSelectUser.resx">
+      <DependentUpon>ClubMembershipSelectUser.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Clubs\Roles\ClubAssignRoles.resx">
+      <DependentUpon>ClubAssignRoles.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Clubs\Events\ClubEvent.resx">
+      <DependentUpon>ClubEvent.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Clubs\Events\ClubEventBookings.resx">
+      <DependentUpon>ClubEventBookings.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Clubs\Events\ClubEventResults.resx">
+      <DependentUpon>ClubEventResults.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Clubs\Events\ClubEvents.resx">
+      <DependentUpon>ClubEvents.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Clubs\Events\ClubEventSections.resx">
+      <DependentUpon>ClubEventSections.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Clubs\Transactions\ClubManageTransaction.resx">
+      <DependentUpon>ClubManageTransaction.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Clubs\Membership\ClubMembership.resx">
+      <DependentUpon>ClubMembership.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Clubs\Membership\ClubMembershipRequests.resx">
+      <DependentUpon>ClubMembershipRequests.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Clubs\Membership\ClubMembershipType.resx">
+      <DependentUpon>ClubMembershipType.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Clubs\Membership\ClubMembershipTypes.resx">
+      <DependentUpon>ClubMembershipTypes.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Clubs\Membership\ClubMembershipRequestNew.resx">
+      <DependentUpon>ClubMembershipRequestNew.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Clubs\Events\ClubNewEventBooking.resx">
+      <DependentUpon>ClubNewEventBooking.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Clubs\Transactions\ClubTransaction.resx">
+      <DependentUpon>ClubTransaction.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Clubs\Transactions\ClubManageTransactions.resx">
+      <DependentUpon>ClubManageTransactions.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Clubs\DateDialog.resx">
+      <DependentUpon>DateDialog.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main.resx">
+      <DependentUpon>Main.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Personal\PersonalMembershipRequests.resx">
+      <DependentUpon>PersonalMembershipRequests.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Personal\PersonalBookings.resx">
+      <DependentUpon>PersonalBookings.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Personal\PersonalDetails.resx">
+      <DependentUpon>PersonalDetails.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Personal\PersonalEventBooking.resx">
+      <DependentUpon>PersonalEventBooking.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Personal\PersonalMembership.resx">
+      <DependentUpon>PersonalMembership.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Clubs\Roles\ClubRoles.resx">
+      <DependentUpon>ClubRoles.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\VehicleClass.resx">
+      <DependentUpon>VehicleClass.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\VehicleClasses.resx">
+      <DependentUpon>VehicleClasses.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Personal\PersonalMembershipRenew.resx">
+      <DependentUpon>PersonalMembershipRenew.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Personal\PersonalNewEventBooking.resx">
+      <DependentUpon>PersonalNewEventBooking.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Personal\PersonalNewMembership.resx">
+      <DependentUpon>PersonalNewMembership.vb</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="spanner_green.ico" />
+    <Content Include="wrench.ico" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\SQLite.3.13.0\build\net45\SQLite.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\SQLite.3.13.0\build\net45\SQLite.props'))" />
+    <Error Condition="!Exists('..\packages\System.Data.SQLite.Core.1.0.112.0\build\net46\System.Data.SQLite.Core.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\System.Data.SQLite.Core.1.0.112.0\build\net46\System.Data.SQLite.Core.targets'))" />
+  </Target>
+  <Import Project="..\packages\System.Data.SQLite.Core.1.0.112.0\build\net46\System.Data.SQLite.Core.targets" Condition="Exists('..\packages\System.Data.SQLite.Core.1.0.112.0\build\net46\System.Data.SQLite.Core.targets')" />
+</Project>
