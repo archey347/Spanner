@@ -8,7 +8,7 @@ It is an application that allows members of different Land Rover Clubs (that are
 
 ## The name
 
-The insipration for the name came from Scouts, as they have an application called Compass for maanging adult volunteers. Compass being a tool that Scouts use frequently, I chose spanner as the name for this project, beause it is a tool people who own Land Rovers use a lot!
+The insipration for the name came from Scouts, as they have an application called Compass for maanging adult volunteers. Compass being a tool that Scouts use frequently, I chose spanner as the name for this project, beause it is a tool that people who own Land Rovers use a lot!
 
 
 ## User Credentials
