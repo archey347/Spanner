@@ -1,5 +1,4 @@
-Spanner
-=======
+# Spanner
 
 There is a shortcut in this directory which should open the application
 
@@ -7,14 +6,12 @@ This is an project I created for my A-Level Computer Science qualification with 
 
 It is an application that allows members of different Land Rover Clubs (that are a part of the Association of Land Rover Clubs) to manage their personal details, memberships with clubs, and book into events. There is also an admin side that allows those people to manage the members. It also provides a way of managing bookings for events, and then recording and processing the results of any competitions.
 
-The name
-========
+## The name
 
 The insipration for the name came from Scouts, as they have an application called Compass for maanging adult volunteers. Compass being a tool that Scouts use frequently, I chose spanner as the name for this project, beause it is a tool people who own Land Rovers use a lot!
 
 
-User Credentials
-=================
+## User Credentials
 
 There are three users setup all with the same password of 'qwerty'.
 
